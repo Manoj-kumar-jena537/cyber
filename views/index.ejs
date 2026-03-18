@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All resume</title>
+    <link rel="stylesheet"href="/style.css"/>
+</head>
+<body>
+   <h1>Indivisual Resume</h1>
+    <% for(post of posts){%>
+        <div class="post">
+            
+            <h3 class="user">@<%= post.username %></h3>
+            <h4 class="degree"><%= post.degree %></h4>
+            <h4 class="email"><%=post.email %></h4>
+            <a href="http://localhost:3030/posts/<%=post.id%>">See in detail</a>&nbsp;&nbsp;
+            <a href="http://localhost:3030/posts/<%=post.id%>/edit">Edit</a>
+            &nbsp;&nbsp;
+            <form method="post" action="/posts/<%= post.id%>?_method=DELETE">
+                <button>Delete Resume</button>
+            </form>
+        </div>
+    <% } %>
+
+    <br/>
+    <br/>
+    <a href="http://localhost:3030/posts/new">create new resume</a>
+</body>
+</html>
